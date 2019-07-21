@@ -1,3 +1,5 @@
+import { Action } from 'redux';
+
 export const NEW_BIRD = 'NEW_BIRD';
 export const DELETE_BIRD = 'DELETE_BIRD';
 
@@ -11,19 +13,21 @@ export interface BirdsState {
   birds: Bird[];
 }
 
-interface NewBird {
+interface NewBird extends Action {
   type: typeof NEW_BIRD,
   payload: {
     bird: Bird,
   };
 };
 
-interface DeleteBird {
+interface DeleteBird extends Action {
   type: typeof DELETE_BIRD,
   payload: {
     birdId: string,
   };
 }
 
-export type BirdActiontypes = NewBird | DeleteBird;
+export type BirdActiontypes =
+  | NewBird
+  | DeleteBird;
 

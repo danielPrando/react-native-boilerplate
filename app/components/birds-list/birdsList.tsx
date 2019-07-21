@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux';
-import { api } from '../../service';
+import { AppState } from '../../store';
 import { Bird } from '../../store/birds/birds.types';
 import { BirdsListProps } from './birdsList.interface';
 
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (store: any) => ({
+const mapStateToProps = (store: AppState) => ({
   birdsList: store.birdsState.birds,
 })
 

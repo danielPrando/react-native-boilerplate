@@ -1,3 +1,4 @@
+import { Reducer } from 'redux';
 import {
   Bird,
   BirdActiontypes,
@@ -10,7 +11,7 @@ const initialState: BirdsState = {
   birds: [],
 };
 
-export const birdsReducer = <BirdsState>(state = initialState, action: BirdActiontypes) => {
+export const birdsReducer: Reducer<any, BirdActiontypes> = (state = initialState, action) => {
   switch (action.type) {
     case NEW_BIRD:
       return {
