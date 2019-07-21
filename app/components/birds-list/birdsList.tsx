@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { api } from '../../service';
 import { Bird } from '../../store/birds/birds.types';
-import { BirdsProps } from './birds.interface';
+import { BirdsListProps } from './birdsList.interface';
 
-export class BirdsClass extends Component<BirdsProps> {
-
+export class BirdsListClass extends Component<BirdsListProps> {
   public render() {
     return (
       <View style={styles.global}>
@@ -39,4 +39,4 @@ const mapDispatchToProps = {
 
 }
 
-export const Birds = connect(mapStateToProps, mapDispatchToProps)(BirdsClass)
+export const BirdsList = connect(mapStateToProps, mapDispatchToProps)(BirdsListClass);

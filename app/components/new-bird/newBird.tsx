@@ -35,7 +35,7 @@ export class NewBirdClass extends Component<NewBirdProps, NewBirdState> {
           value={this.state.bird.name} />
         <Button
           onPress={this.register}
-          title="Cadastrar"
+          title="Register"
         />
       </View>
     )

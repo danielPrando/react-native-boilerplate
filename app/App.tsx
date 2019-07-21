@@ -1,27 +1,23 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-} from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
-import { Birds } from './components/birds/birds';
-import { NewBird } from './components/new-bird/newBird';
 import { Store } from './store';
+import AppNavigator from './views/app.navigator';
+import { AuthNavigator } from './views/auth.navigator';
 
-const App = () => {
-  return (
-    <Provider store={Store}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic">
-         <NewBird />
-         <Birds />
-        </ScrollView>
-      </SafeAreaView>
-    </Provider>
-  );
-};
+const SwitchNavigator = createAppContainer(
+  createSwitchNavigator({
+    App: AppNavigator,
+    Auth: AuthNavigator,
+  },
+    {
+      initialRouteName: 'Auth'
+    })
+);
 
+const App = () => (
+  <Provider store={Store}>
+    <SwitchNavigator />
+  </Provider>
+);
 export default App;
